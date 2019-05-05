@@ -8,17 +8,29 @@ Ext.define('ModernTunes.view.main.MainView', {
   requires: [
     'ModernTunes.view.main.MainViewController',
     'ModernTunes.view.main.MainViewModel',
-    'ModernTunes.view.TunesView'
+    'ModernTunes.view.TunesView',
+    'ModernTunes.view.TunesGrid',
+
   ],
   tabBarPosition: 'bottom',
   items: [{
       title: "Thumbnails",
       xtype: 'tunesview',
+      listeners: {
+        select: 'onThumbSelect'
+      },
       bind: {
         store: '{tunes}'
       }
     }, {
       title: "Grid",
-      html: '<h1>tunes grid</h1>'
+      xtype: 'tunesgrid',
+      listeners: {
+        select: 'onGridSelect'
+      },
+      bind: {
+        store: '{tunes}'
+      }
+
   }]
 })
