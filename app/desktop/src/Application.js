@@ -4,7 +4,9 @@ Ext.define('ModernTunes.Application', {
   requires: ['ModernTunes.*'],
 
   launch: function () {
-    Ext.Viewport.add([{xtype: 'mainview'}])
+    var loggedIn = localStorage.getItem('ModetnTunes');
+
+    Ext.Viewport.add([{xtype: loggedIn ? 'mainview': 'login'}])
   },
 
   onAppUpdate: function () {
